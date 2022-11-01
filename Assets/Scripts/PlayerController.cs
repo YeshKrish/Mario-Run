@@ -4,21 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public static PlayerController Instance;
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
+    CameraContoller _camCon;
+
     [SerializeField] float speed = 5f;
     [SerializeField] float jumpHeight = 5f;
+
+    public Transform groundCheck;
+    public LayerMask layers;
 
     float _hInput;
     float _vInput;
@@ -28,8 +21,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _rb = GetComponent<Rigidbody>();
-     
+        _rb = GetComponent<Rigidbody>();     
     }
 
     // Update is called once per frame
@@ -39,14 +31,21 @@ public class PlayerController : MonoBehaviour
         _vInput = Input.GetAxis("Vertical");
         _rb.velocity = new Vector3(_hInput * speed, _rb.velocity.y, _vInput * speed);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             Jump();
         }
     }
 
-    void Jump()
+    void Jump( )
     {
         _rb.velocity = new Vector3(_rb.velocity.x, jumpHeight, _rb.velocity.z);
+        
+    }
+
+    bool IsGrounded()
+    {
+        return Physics.CheckSphere(groundCheck.position, 0.1f, layers);
+
     }
 }

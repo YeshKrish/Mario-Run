@@ -5,24 +5,25 @@ using Cinemachine;
 
 public class CameraContoller : MonoBehaviour
 {
-    [SerializeField] Vector3 offset = new Vector3(0f, 4.5f, -13f);
+    public static CameraContoller Instance;
 
-    public Transform playerPos;
+    [HideInInspector]
+    public CinemachineVirtualCamera virtualCamera;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
 
+        GameObject vCamObject = GameObject.FindWithTag("VirtualCamera");
+
+        virtualCamera = vCamObject.GetComponent<CinemachineVirtualCamera>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        FollowPlayer();
-    }
-
-    void FollowPlayer()
-    {
-       
-    }
 }
