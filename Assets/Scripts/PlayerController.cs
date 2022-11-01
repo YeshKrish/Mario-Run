@@ -4,21 +4,31 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public CharacterController controller;
+    public static PlayerController Instance;
 
-    public float speed = 5f;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    [SerializeField] float speed = 5f;
+    [SerializeField] float jumpHeight = 5f;
 
     float _hInput;
     float _vInput;
 
     Rigidbody _rb;
 
-    float _smoothTurnTime = 0.1f;
-    float _smoothVelocity;
-
     // Start is called before the first frame update
     void Start()
     {
+        _rb = GetComponent<Rigidbody>();
      
     }
 
@@ -27,17 +37,16 @@ public class PlayerController : MonoBehaviour
     {
         _hInput = Input.GetAxis("Horizontal");
         _vInput = Input.GetAxis("Vertical");
-        Vector3 direction = new Vector3(_hInput, 0f, _vInput).normalized;
+        _rb.velocity = new Vector3(_hInput * speed, _rb.velocity.y, _vInput * speed);
 
-        if(direction.magnitude >= 0.1f)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _smoothVelocity, _smoothTurnTime);
-            gameObject.transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
-
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            Jump();
         }
+    }
 
+    void Jump()
+    {
+        _rb.velocity = new Vector3(_rb.velocity.x, jumpHeight, _rb.velocity.z);
     }
 }
