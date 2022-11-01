@@ -48,4 +48,11 @@ public class PlayerController : MonoBehaviour
         return Physics.CheckSphere(groundCheck.position, 0.1f, layers);
 
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyHead"))
+        {
+            Destroy(collision.transform.parent.gameObject);
+        }
+    }
 }
