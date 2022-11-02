@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject restartButton;
 
     public static GameManager Instance;
     public Transform player;
@@ -25,11 +27,14 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         CameraContoller.Instance.virtualCamera.Follow = player.transform;
+        restartButton.SetActive(false);
     }
 
     public void PlayerDead()
     {
-        Invoke(nameof(RestartLevel), 3f);
+        Time.timeScale = 0f;
+        restartButton.SetActive(true);
+        //Invoke(nameof(RestartLevel), 3f);
     }
 
     public void RestartLevel()
