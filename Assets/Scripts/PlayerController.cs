@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Audio;
 
 public class PlayerController : MonoBehaviour
 {
     public TextMeshProUGUI coinText;
+    public GameObject victoryText;
     public Item item;
+    public AudioSource jumpSound;
+    public AudioSource coinSound;
+    public AudioSource victorySound;
 
 
     CameraContoller _camCon;
@@ -27,6 +32,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         item.quatity = 0;
+        coinText.text = item.quatity.ToString();
         _rb = GetComponent<Rigidbody>();     
     }
 
@@ -46,7 +52,7 @@ public class PlayerController : MonoBehaviour
     void Jump( )
     {
         _rb.velocity = new Vector3(_rb.velocity.x, jumpHeight, _rb.velocity.z);
-        
+        jumpSound.Play(); 
     }
 
     bool IsGrounded()
@@ -67,9 +73,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PickUps"))
         {
+            coinSound.Play();
             Item hitObject = other.gameObject.GetComponent<Consumables>().item;
             if(hitObject != null)
             {
+                
                 hitObject.quatity = hitObject.quatity +1;
                 Debug.Log(hitObject.quatity);
                 coinText.text = hitObject.quatity.ToString();
@@ -77,6 +85,21 @@ public class PlayerController : MonoBehaviour
                 other.gameObject.SetActive(false);
             }
         }
+        else if (other.gameObject.CompareTag("FinishLine"))
+        {
+            victorySound.Play();
+            victoryText.SetActive(true);
+            GetComponent<Rigidbody>().isKinematic = true;
+            GetComponent<PlayerController>().enabled = false;
+            GameManager.Instance.isGameOver = true;
+            //Time.timeScale = 0f;
+            Invoke("Won", 5f);
+        }
+    }
+
+    void Won()
+    {
+        GameManager.Instance.LevelCompleted();
     }
 
 }

@@ -8,8 +8,12 @@ public class GameManager : MonoBehaviour
 {
     public GameObject restartButton;
 
+
     public static GameManager Instance;
     public Transform player;
+
+    [HideInInspector]
+    public bool isGameOver = false;
 
     private void Awake()
     {
@@ -32,15 +36,20 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDead()
     {
+        isGameOver = true;
         Time.timeScale = 0f;
         restartButton.SetActive(true);
-        //Invoke(nameof(RestartLevel), 3f);
+    }
+    public void LevelCompleted()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void RestartLevel()
     {
         SceneManager.LoadScene(0);
         Time.timeScale = 1f;
+        isGameOver = false;
        
     }
 }

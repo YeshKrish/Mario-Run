@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerLife : MonoBehaviour
 {
     public static PlayerLife Instance;
+    public AudioSource deadSound;
 
     bool playerDead = false;
 
@@ -42,7 +43,8 @@ public class PlayerLife : MonoBehaviour
 
     void Die()
     {
-        this.gameObject.SetActive(false);
+        deadSound.Play();
+        gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
         GetComponent<PlayerController>().enabled = false;
         playerDead = true;
