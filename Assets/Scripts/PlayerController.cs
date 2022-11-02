@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("EnemyHead"))
         {
             Destroy(collision.transform.parent.gameObject);
+            Jump();
         }
     }
 
