@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+    public TextMeshProUGUI coinText;
+    public Item item;
+
 
     CameraContoller _camCon;
 
@@ -21,6 +26,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        item.quatity = 0;
         _rb = GetComponent<Rigidbody>();     
     }
 
@@ -54,6 +60,22 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(collision.transform.parent.gameObject);
             Jump();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PickUps"))
+        {
+            Item hitObject = other.gameObject.GetComponent<Consumables>().item;
+            if(hitObject != null)
+            {
+                hitObject.quatity = hitObject.quatity +1;
+                Debug.Log(hitObject.quatity);
+                coinText.text = hitObject.quatity.ToString();
+                Debug.Log("PickedUp Object: " + hitObject.objectName);
+                other.gameObject.SetActive(false);
+            }
         }
     }
 

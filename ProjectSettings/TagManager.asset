@@ -9,6 +9,7 @@ TagManager:
   - MovingPlatform
   - Enemy
   - EnemyHead
+  - PickUps
   layers:
   - Default
   - TransparentFX
