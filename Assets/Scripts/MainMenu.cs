@@ -25,6 +25,7 @@ public class MainMenu : MonoBehaviour
 
     public void RestartGame()
     {
+        Item.quatity = 0;
         SceneManager.LoadScene(2);
        
     }  

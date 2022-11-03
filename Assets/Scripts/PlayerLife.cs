@@ -50,6 +50,7 @@ public class PlayerLife : MonoBehaviour
         GetComponent<Rigidbody>().isKinematic = true;
         GetComponent<PlayerController>().enabled = false;
         playerDead = true;
+        Item.quatity = 0;
         PlayerPrefs.SetInt("RecentScene", SceneManager.GetActiveScene().buildIndex);
         Invoke("Dead", 1f);
     }

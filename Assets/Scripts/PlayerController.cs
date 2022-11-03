@@ -30,8 +30,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        item.quatity = 0;
-        coinText.text = item.quatity.ToString();
+        //Item.quatity = 0;
+        coinText.text = Item.quatity.ToString();
         _rb = GetComponent<Rigidbody>();     
     }
 
@@ -76,10 +76,10 @@ public class PlayerController : MonoBehaviour
             Item hitObject = other.gameObject.GetComponent<Consumables>().item;
             if(hitObject != null)
             {
-                
-                hitObject.quatity = hitObject.quatity +1;
-                Debug.Log(hitObject.quatity);
-                coinText.text = hitObject.quatity.ToString();
+
+                Item.quatity = Item.quatity +1;
+                Debug.Log(Item.quatity);
+                coinText.text = Item.quatity.ToString();
                 Debug.Log("PickedUp Object: " + hitObject.objectName);
                 other.gameObject.SetActive(false);
             }
