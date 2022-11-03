@@ -8,11 +8,10 @@ using UnityEngine.Audio;
 public class PlayerController : MonoBehaviour
 {
     public TextMeshProUGUI coinText;
-    public GameObject victoryText;
+
     public Item item;
     public AudioSource jumpSound;
     public AudioSource coinSound;
-    public AudioSource victorySound;
 
 
     CameraContoller _camCon;
@@ -85,21 +84,7 @@ public class PlayerController : MonoBehaviour
                 other.gameObject.SetActive(false);
             }
         }
-        else if (other.gameObject.CompareTag("FinishLine"))
-        {
-            victorySound.Play();
-            victoryText.SetActive(true);
-            GetComponent<Rigidbody>().isKinematic = true;
-            GetComponent<PlayerController>().enabled = false;
-            GameManager.Instance.isGameOver = true;
-            //Time.timeScale = 0f;
-            Invoke("Won", 5f);
-        }
     }
 
-    void Won()
-    {
-        GameManager.Instance.LevelCompleted();
-    }
 
 }

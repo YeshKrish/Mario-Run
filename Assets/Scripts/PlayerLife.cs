@@ -35,7 +35,7 @@ public class PlayerLife : MonoBehaviour
 
     void OnFalling()
     {
-        if(transform.position.y <= -3.0f && !playerDead)
+        if(transform.position.y <= -5.0f && !playerDead)
         {
             Die();
         }

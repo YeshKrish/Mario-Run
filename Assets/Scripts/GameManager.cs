@@ -40,14 +40,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         restartButton.SetActive(true);
     }
-    public void LevelCompleted()
-    {
-        SceneManager.LoadScene(0);
-    }
 
     public void RestartLevel()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
         isGameOver = false;
        
