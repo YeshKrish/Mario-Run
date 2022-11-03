@@ -6,9 +6,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject restartButton;
-
-
     public static GameManager Instance;
     public Transform player;
 
@@ -31,21 +28,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         CameraContoller.Instance.virtualCamera.Follow = player.transform;
-        restartButton.SetActive(false);
     }
 
     public void PlayerDead()
     {
         isGameOver = true;
         Time.timeScale = 0f;
-        restartButton.SetActive(true);
+        SceneManager.LoadScene("RetryScene");
     }
 
-    public void RestartLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1f;
-        isGameOver = false;
-       
-    }
 }

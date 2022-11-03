@@ -17,7 +17,7 @@ public class Finish : MonoBehaviour
             victoryText.SetActive(true);
             player.GetComponent<Rigidbody>().isKinematic = true;
             player.GetComponent<PlayerController>().enabled = false;
-            GameManager.Instance.isGameOver = true;
+            GameManager.Instance.isGameOver = true; 
             Invoke("Won", 5f);
         }
     }

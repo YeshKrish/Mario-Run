@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
@@ -43,12 +44,18 @@ public class PlayerLife : MonoBehaviour
 
     void Die()
     {
+        
         deadSound.Play();
         gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
         GetComponent<PlayerController>().enabled = false;
         playerDead = true;
-        GameManager.Instance.PlayerDead();
+        PlayerPrefs.SetInt("RecentScene", SceneManager.GetActiveScene().buildIndex);
+        Invoke("Dead", 1f);
+    }
 
+    void Dead()
+    {
+        GameManager.Instance.PlayerDead();
     }
 }
