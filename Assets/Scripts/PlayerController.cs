@@ -101,16 +101,19 @@ public class PlayerController : MonoBehaviour
             jumpButtonPressedTime = Time.time;
         }
 
-         _rb.velocity = new Vector3(_hInput * speed, _rb.velocity.y, _vInput * speed);
-
-        if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
+        _rb.velocity = new Vector3(_hInput * speed, _rb.velocity.y, _vInput * speed);
+        if ((Time.time - lastGroundedTime <= jumpButtonGracePeriod))
         {
             if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
             {
-                playerAnimation.SetBool("isJumping", true);
-                jumpButtonPressedTime = null;
-                lastGroundedTime = null;
-                Jump();
+                if (!isJumping)
+                {
+                    playerAnimation.SetBool("isJumping", true);
+                    jumpButtonPressedTime = null;
+                    lastGroundedTime = null;
+                    Jump();
+
+                }
             }
 
         }
