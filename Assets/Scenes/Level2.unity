@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8313df0fc0e33d4ebdaa4b364d61ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinText: {fileID: 449545366}
+  coinText: {fileID: 2001313826}
   item: {fileID: 11400000, guid: 539fc216ffc432148bbbd063a66bd677, type: 2}
   jumpSound: {fileID: 87500373}
   coinSound: {fileID: 87500372}
