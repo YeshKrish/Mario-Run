@@ -3204,7 +3204,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victorySound: {fileID: 1427375099}
   victoryText: {fileID: 584811172}
-  player: {fileID: 0}
+  player: {fileID: 87500367}
+  boxCollider: {fileID: 1427375096}
+  playerTransform: {fileID: 87500377}
 --- !u!1 &1455410262
 GameObject:
   m_ObjectHideFlags: 0
