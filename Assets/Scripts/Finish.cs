@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Finish : MonoBehaviour
 {
-    public AudioSource victorySound;
-    public GameObject victoryText;
-    public GameObject player;
+    [SerializeField] AudioSource victorySound;
+    [SerializeField] GameObject victoryText;
+    [SerializeField] GameObject player;
 
+
+    float maxDistance = 0.9f;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))

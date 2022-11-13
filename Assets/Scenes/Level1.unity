@@ -2259,6 +2259,8 @@ MonoBehaviour:
   victorySound: {fileID: 1219355463}
   victoryText: {fileID: 584811172}
   player: {fileID: 1322871374}
+  boxCollider: {fileID: 1219355465}
+  playerTransform: {fileID: 1322871380}
 --- !u!65 &1219355465
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3223,7 +3225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6450398877741688825, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
       propertyPath: m_Name
-      value: Ground (8)
+      value: a
       objectReference: {fileID: 0}
     - target: {fileID: 6450398877741688825, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
       propertyPath: m_TagString
