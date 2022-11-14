@@ -3545,11 +3545,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
---- !u!23 &2137761246 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6450398877741688823, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
-  m_PrefabInstance: {fileID: 6450398878557153887}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &369139004563719092
 Transform:
   m_ObjectHideFlags: 0
@@ -3763,10 +3758,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground
       objectReference: {fileID: 0}
-    - target: {fileID: 7940878295332917532, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
-      propertyPath: platformColor
-      value: 
-      objectReference: {fileID: 2137761246}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
 --- !u!1001 &6773193838193292471
