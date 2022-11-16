@@ -17,9 +17,19 @@ public class PlatformBehaviour : MonoBehaviour
         Debug.Log(currentTime);
     }
 
-    private void OnCollisionStay(Collision collision)
+    //private void OnCollisionStay(Collision collision)
+    //{
+    //    if(collision.gameObject.CompareTag("Player") && isPlatformBurst && currentTime > togglePlatformColor)
+    //    {
+    //        currentTime = 0f;
+    //        Debug.Log(currentTime);
+    //        Debug.Log("Changing Color");
+    //        platformColor.material.color = Color.red;
+    //    }
+    //}
+    private void OnTriggerStay(Collider other)
     {
-        if(collision.gameObject.CompareTag("Player") && isPlatformBurst && currentTime > togglePlatformColor)
+        if (other.gameObject.CompareTag("Player") && isPlatformBurst && currentTime > togglePlatformColor)
         {
             currentTime = 0f;
             Debug.Log(currentTime);
@@ -28,9 +38,9 @@ public class PlatformBehaviour : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        currentTime = 0f;
-    }
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    currentTime = 0f;
+    //}
 
 }
