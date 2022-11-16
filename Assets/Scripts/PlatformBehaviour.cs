@@ -38,6 +38,11 @@ public class PlatformBehaviour : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        currentTime = 0f;
+    }
+
     //private void OnCollisionExit(Collision collision)
     //{
     //    currentTime = 0f;
