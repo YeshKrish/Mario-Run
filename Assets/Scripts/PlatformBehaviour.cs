@@ -46,8 +46,9 @@ public class PlatformBehaviour : MonoBehaviour
 
     void DestroyPlatform()
     {
-        this.GetComponentInParent<MeshRenderer>().enabled = false;
-        //this.GetComponentInParent<GameObject>().active = false;
+       // this.GetComponentInParent<MeshRenderer>().enabled = false;
+        Transform transform = this.GetComponentInParent<Transform>();
+        Destroy(transform.parent.gameObject);
     }
 
     //private void OnCollisionExit(Collision collision)
