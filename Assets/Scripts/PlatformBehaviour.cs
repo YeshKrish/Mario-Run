@@ -35,12 +35,19 @@ public class PlatformBehaviour : MonoBehaviour
             Debug.Log(currentTime);
             Debug.Log("Changing Color");
             platformColor.material.color = Color.red;
+            Invoke("DestroyPlatform", 3f);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         currentTime = 0f;
+    }
+
+    void DestroyPlatform()
+    {
+        this.GetComponentInParent<MeshRenderer>().enabled = false;
+        //this.GetComponentInParent<GameObject>().active = false;
     }
 
     //private void OnCollisionExit(Collision collision)
