@@ -11,6 +11,7 @@ TagManager:
   - EnemyHead
   - PickUps
   - FinishLine
+  - EnemyBottom
   layers:
   - Default
   - TransparentFX

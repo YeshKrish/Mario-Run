@@ -14,7 +14,7 @@ public class PlatformBehaviour : MonoBehaviour
     {
         currentTime += Time.deltaTime;
         isPlatformBurst = Mathf.FloorToInt(Time.time) % 8 == 0;
-        Debug.Log(currentTime);
+        //Debug.Log(currentTime);
     }
 
     //private void OnCollisionStay(Collision collision)
@@ -30,7 +30,7 @@ public class PlatformBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("EnemyBottom"))
         {
             Debug.Log("I have enemy");
         }
@@ -41,7 +41,7 @@ public class PlatformBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && isPlatformBurst && currentTime > togglePlatformColor)
         {
             currentTime = 0f;
-            Debug.Log(currentTime);
+            //Debug.Log(currentTime);
             Debug.Log("Changing Color");
             platformColor.material.color = Color.red;
             Invoke("DestroyPlatform", 3f);
