@@ -27,6 +27,15 @@ public class PlatformBehaviour : MonoBehaviour
     //        platformColor.material.color = Color.red;
     //    }
     //}
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("I have enemy");
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && isPlatformBurst && currentTime > togglePlatformColor)
