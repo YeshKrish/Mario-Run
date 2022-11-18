@@ -40,11 +40,16 @@ public class PlatformBehaviour : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && isPlatformBurst && currentTime > togglePlatformColor)
         {
+            Debug.Log(currentTime);
             currentTime = 0f;
-            //Debug.Log(currentTime);
+            Debug.Log(currentTime);
             Debug.Log("Changing Color");
             platformColor.material.color = Color.red;
             Invoke("DestroyPlatform", 3f);
+        }
+        else if (other.gameObject.CompareTag("EnemyBottom"))
+        {
+            Debug.Log("I have enemy");
         }
     }
 
