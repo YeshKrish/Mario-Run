@@ -34,6 +34,7 @@ public class PlatformBehaviour : MonoBehaviour
         {
             Debug.Log("I have enemy");
         }
+ 
     }
 
     private void OnTriggerStay(Collider other)
@@ -46,10 +47,6 @@ public class PlatformBehaviour : MonoBehaviour
             Debug.Log("Changing Color");
             platformColor.material.color = Color.red;
             Invoke("DestroyPlatform", 3f);
-        }
-        else if (other.gameObject.CompareTag("EnemyBottom"))
-        {
-            Debug.Log("I have enemy");
         }
     }
 

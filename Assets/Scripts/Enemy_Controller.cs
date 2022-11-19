@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Enemy_Controller : MonoBehaviour
 {
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if(collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
-    //    {
-    //        Debug.Log("I am on enemy");
-    //    }
-    //}
-
+    private void Update()
+    {
+        if(this.transform.position.y < -2.5f)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
+    
+    

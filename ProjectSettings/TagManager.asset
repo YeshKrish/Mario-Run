@@ -12,6 +12,7 @@ TagManager:
   - PickUps
   - FinishLine
   - EnemyBottom
+  - GroundTrigger
   layers:
   - Default
   - TransparentFX
