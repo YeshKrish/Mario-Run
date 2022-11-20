@@ -7,8 +7,11 @@ public class PlatformBehaviour : MonoBehaviour
     float currentTime;
     bool isPlatformBurst;
     float togglePlatformColor = 8f;
+    static bool isEndline = false;
 
     [SerializeField] Renderer platformColor;
+
+    string endPlatformName = "Endline";
 
     private void Update()
     {
@@ -17,36 +20,34 @@ public class PlatformBehaviour : MonoBehaviour
         //Debug.Log(currentTime);
     }
 
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    if(collision.gameObject.CompareTag("Player") && isPlatformBurst && currentTime > togglePlatformColor)
-    //    {
-    //        currentTime = 0f;
-    //        Debug.Log(currentTime);
-    //        Debug.Log("Changing Color");
-    //        platformColor.material.color = Color.red;
-    //    }
-    //}
-
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("EnemyBottom"))
+        Debug.Log(transform.parent.name);
+        if (collision.gameObject.CompareTag("Player") && transform.parent.name == endPlatformName)
         {
-            Debug.Log("I have enemy");
+            isEndline = true;
+
         }
- 
+        else
+        {
+            isEndline = false;
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && isPlatformBurst && currentTime > togglePlatformColor)
+        Debug.Log(isEndline);
+        if (other.gameObject.CompareTag("Player") && isPlatformBurst && currentTime >= togglePlatformColor && !isEndline)
         {
+
             Debug.Log(currentTime);
             currentTime = 0f;
             Debug.Log(currentTime);
             Debug.Log("Changing Color");
             platformColor.material.color = Color.red;
             Invoke("DestroyPlatform", 3f);
+
+           
         }
     }
 
@@ -62,9 +63,5 @@ public class PlatformBehaviour : MonoBehaviour
         Destroy(transform.parent.gameObject);
     }
 
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    currentTime = 0f;
-    //}
 
 }

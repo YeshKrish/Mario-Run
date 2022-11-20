@@ -13,6 +13,7 @@ TagManager:
   - FinishLine
   - EnemyBottom
   - GroundTrigger
+  - EndLine
   layers:
   - Default
   - TransparentFX
