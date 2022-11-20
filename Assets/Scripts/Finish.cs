@@ -19,7 +19,7 @@ public class Finish : MonoBehaviour
         {
             victorySound.Play();
             victoryText.SetActive(true);
-            GameManager.Instance.isGameOver = true; 
+            GameManager.Instance.isGameOver = true;
             Invoke("Won", 5f);
             Invoke("StopTrigger", 0.5f);
             

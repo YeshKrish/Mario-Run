@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public Transform player;
+    public TextMeshProUGUI levelText;
 
     [HideInInspector]
     public bool isGameOver = false;
+    [HideInInspector]
+    public int level;
 
     private void Awake()
     {
@@ -22,6 +26,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    private void Update()
+    {
+        level = SceneManager.GetActiveScene().buildIndex;
+        levelText.text = level.ToString();
     }
 
     // Start is called before the first frame update 

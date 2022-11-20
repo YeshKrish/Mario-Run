@@ -37,20 +37,21 @@ public class PlatformBehaviour : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(SceneManager.GetActiveScene().buildIndex > 3)
-        Debug.Log(isEndline);
-        if (other.gameObject.CompareTag("Player") && isPlatformBurst && currentTime >= togglePlatformColor && !isEndline)
+        if(GameManager.Instance.level > 3)
         {
+            Debug.Log(PlayerPrefs.GetInt("NextLevelPromotion"));
+            if (other.gameObject.CompareTag("Player") && isPlatformBurst && currentTime >= togglePlatformColor && !isEndline)
+            {
 
-            Debug.Log(currentTime);
-            currentTime = 0f;
-            Debug.Log(currentTime);
-            Debug.Log("Changing Color");
-            platformColor.material.color = Color.red;
-            Invoke("DestroyPlatform", 3f);
-
-           
+                Debug.Log(currentTime);
+                currentTime = 0f;
+                Debug.Log(currentTime);
+                Debug.Log("Changing Color");
+                platformColor.material.color = Color.red;
+                Invoke("DestroyPlatform", 3f);
+            }
         }
+       
     }
 
     private void OnTriggerExit(Collider other)
