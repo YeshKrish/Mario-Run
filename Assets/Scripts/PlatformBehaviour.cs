@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlatformBehaviour : MonoBehaviour
@@ -36,6 +37,7 @@ public class PlatformBehaviour : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if(SceneManager.GetActiveScene().buildIndex > 3)
         Debug.Log(isEndline);
         if (other.gameObject.CompareTag("Player") && isPlatformBurst && currentTime >= togglePlatformColor && !isEndline)
         {
