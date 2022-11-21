@@ -37,7 +37,7 @@ public class PlatformBehaviour : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(GameManager.Instance.level > 3)
+        if(GameManager.Instance.level >= 3)
         {
             Debug.Log(PlayerPrefs.GetInt("NextLevelPromotion"));
             if (other.gameObject.CompareTag("Player") && isPlatformBurst && currentTime >= togglePlatformColor && !isEndline)
