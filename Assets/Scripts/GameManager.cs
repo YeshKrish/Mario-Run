@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        level = SceneManager.GetActiveScene().buildIndex;
+        level = SceneManager.GetActiveScene().buildIndex - 1;
         levelText.text = level.ToString();
     }
 
