@@ -160,6 +160,7 @@ public class PlayerController : MonoBehaviour
 
                 Item.quatity = Item.quatity +1;
                 Debug.Log(Item.quatity);
+                HighScoreChecker();
                 coinText.text = Item.quatity.ToString();
                 Debug.Log("PickedUp Object: " + hitObject.objectName);
                 other.gameObject.SetActive(false);
@@ -167,5 +168,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void HighScoreChecker()
+    {
+        if(Item.quatity > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt("HighScore", Item.quatity);
+        }
+    }
 
 }
