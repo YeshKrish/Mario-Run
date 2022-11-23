@@ -8,7 +8,7 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance;
     public TextMeshProUGUI highScoreTxt;
 
-    static int highScoreStorer;
+    static int highScoreStorer = 0;
 
     private void Awake()
     {
@@ -26,10 +26,14 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
         highScoreTxt.text = Item.quatity.ToString();
-        highScoreStorer = int.Parse(highScoreTxt.text);
         if(int.Parse(highScoreTxt.text) > highScoreStorer)
         {
+            highScoreStorer = int.Parse(highScoreTxt.text);
             highScoreTxt.text = highScoreStorer.ToString();
+        }
+        else
+        {
+            highScoreStorer = int.Parse(highScoreTxt.text);
         }
     }
 }
