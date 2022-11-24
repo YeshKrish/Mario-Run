@@ -170,7 +170,8 @@ public class PlayerController : MonoBehaviour
 
     void HighScoreChecker()
     {
-        if(Item.quatity > PlayerPrefs.GetInt("HighScore", 0) && !PlayerLife.Instance.playerDead)
+        //Need to revert highscore if player is dead
+        if(Item.quatity > PlayerPrefs.GetInt("HighScore", 0) && PlayerPrefs.HasKey("HighScore"))
         {
             PlayerPrefs.SetInt("HighScore", Item.quatity);
         }
