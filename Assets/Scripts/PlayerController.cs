@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
 
     void HighScoreChecker()
     {
-        if(Item.quatity > PlayerPrefs.GetInt("HighScore", 0))
+        if(Item.quatity > PlayerPrefs.GetInt("HighScore", 0) && !PlayerLife.Instance.playerDead)
         {
             PlayerPrefs.SetInt("HighScore", Item.quatity);
         }

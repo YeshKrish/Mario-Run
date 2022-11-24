@@ -32,8 +32,6 @@ public class GameManager : MonoBehaviour
     {
         level = SceneManager.GetActiveScene().buildIndex - 1;
         levelText.text = level.ToString();
-
-
     }
 
     // Start is called before the first frame update 

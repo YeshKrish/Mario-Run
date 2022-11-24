@@ -8,7 +8,8 @@ public class PlayerLife : MonoBehaviour
     public static PlayerLife Instance;
     public AudioSource deadSound;
 
-    bool playerDead = false;
+    [HideInInspector]
+    public bool playerDead = false;
 
     private void Update()
     {
