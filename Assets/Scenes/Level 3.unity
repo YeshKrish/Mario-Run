@@ -208,7 +208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65846892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.48, y: 0, z: 24.38}
+  m_LocalPosition: {x: 10.81, y: 0, z: 30.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2639,6 +2639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deadSound: {fileID: 1322871388}
+  playerDead: 0
 --- !u!82 &1322871386 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 705812593957217154, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
