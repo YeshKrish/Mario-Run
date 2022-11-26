@@ -8,16 +8,42 @@ public class PlatformBehaviour : MonoBehaviour
     float currentTime;
     bool isPlatformBurst;
     float togglePlatformColor = 8f;
+    float togglePlatformSize = 3f;
     static bool isEndline = false;
+    bool isPlatformShrinking;
+    Vector3 shrinkOriginalSize;
 
-    [SerializeField] Renderer platformColor;
+    Transform platformShrink;
+
+    [SerializeField] 
+    Renderer platformColor;
 
     string endPlatformName = "Endline";
+
+    private void Start()
+    {
+        platformShrink = GameObject.FindGameObjectWithTag("EndLine").transform;
+        shrinkOriginalSize = platformShrink.localScale;
+    }
 
     private void Update()
     {
         currentTime += Time.deltaTime;
         isPlatformBurst = Mathf.FloorToInt(Time.time) % 8 == 0;
+
+        isPlatformShrinking = Mathf.FloorToInt(Time.time) % 3 == 0;
+
+        Debug.Log(platformShrink.localScale);
+
+        if (isPlatformShrinking && currentTime >= togglePlatformSize)
+        {
+            PlatformShrinking();
+        }
+        else
+        {
+            platformShrink.localScale = shrinkOriginalSize;
+        }
+
         //Debug.Log(currentTime);
     }
 
@@ -66,5 +92,9 @@ public class PlatformBehaviour : MonoBehaviour
         Destroy(transform.parent.gameObject);
     }
 
+    void PlatformShrinking()
+    {
+        platformShrink.localScale = new Vector3(1.0f, 1.0f, 0.5f);    
+    }
 
 }

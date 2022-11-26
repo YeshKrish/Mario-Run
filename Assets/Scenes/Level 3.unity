@@ -2414,8 +2414,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230802855}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.87, z: 74.39}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 9.21, z: 71.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2911,7 +2911,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570934782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.87, z: 68.86}
+  m_LocalPosition: {x: 0, y: 2.87, z: 71.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3189,6 +3189,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6450398877741688821, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6450398877741688825, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
       propertyPath: m_Name
       value: Ground (8)
@@ -3197,6 +3201,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: MovingPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 7940878295332917532, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
+      propertyPath: platformShrink
+      value: 
+      objectReference: {fileID: 1745948503}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
 --- !u!4 &1854855353 stripped
