@@ -2323,6 +2323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2728315ce3d9d40996aacd7a898b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinishLine: 0
   victorySound: {fileID: 1219355463}
   victoryText: {fileID: 635376523}
   player: {fileID: 1322871374}
@@ -3201,6 +3202,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: MovingPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 7940878295332917532, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
+      propertyPath: finish
+      value: 
+      objectReference: {fileID: 1219355464}
     - target: {fileID: 7940878295332917532, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
       propertyPath: platformShrink
       value: 

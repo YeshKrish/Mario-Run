@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Finish : MonoBehaviour
 {
+    [HideInInspector]
+    public bool isFinishLine;
+
     [SerializeField] AudioSource victorySound;
     [SerializeField] GameObject victoryText;
     [SerializeField] GameObject player;
@@ -17,6 +20,7 @@ public class Finish : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            isFinishLine = true;
             victorySound.Play();
             victoryText.SetActive(true);
             GameManager.Instance.isGameOver = true;

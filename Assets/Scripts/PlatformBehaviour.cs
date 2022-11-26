@@ -18,11 +18,16 @@ public class PlatformBehaviour : MonoBehaviour
     [SerializeField] 
     Renderer platformColor;
 
+    Finish finish;
+
     string endPlatformName = "Endline";
 
     private void Start()
     {
         platformShrink = GameObject.FindGameObjectWithTag("EndLine").transform;
+
+        finish = GameObject.FindGameObjectWithTag("FinishLine").GetComponent<Finish>();
+
         shrinkOriginalSize = platformShrink.localScale;
     }
 
@@ -33,9 +38,9 @@ public class PlatformBehaviour : MonoBehaviour
 
         isPlatformShrinking = Mathf.FloorToInt(Time.time) % 3 == 0;
 
-        Debug.Log(platformShrink.localScale);
+        Debug.Log(platformShrink.localScale + " " + finish.isFinishLine);
 
-        if (isPlatformShrinking && currentTime >= togglePlatformSize)
+        if (isPlatformShrinking && currentTime >= togglePlatformSize && !finish.isFinishLine)
         {
             PlatformShrinking();
         }
