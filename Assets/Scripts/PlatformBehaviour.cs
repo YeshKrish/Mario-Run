@@ -9,7 +9,7 @@ public class PlatformBehaviour : MonoBehaviour
     bool isPlatformBurst;
     float togglePlatformColor = 8f;
     float togglePlatformSize = 3f;
-    static bool isEndline = false;
+    //bool isEndline = false;
     bool isPlatformShrinking;
     Vector3 shrinkOriginalSize;
 
@@ -52,26 +52,28 @@ public class PlatformBehaviour : MonoBehaviour
         //Debug.Log(currentTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log(transform.parent.name);
-        if (collision.gameObject.CompareTag("Player") && transform.parent.name == endPlatformName)
-        {
-            isEndline = true;
+    //private void OnCollisionStay(Collision collision)
+    //{
+    //    Debug.Log(transform.parent.name + " " + endPlatformName);
+    //    if (collision.gameObject.CompareTag("Player") && transform.parent.name == endPlatformName)
+    //    {
+    //        isEndline = true;
+    //        Debug.Log("Finsh Line:" + isEndline);
 
-        }
-        else
-        {
-            isEndline = false;
-        }
-    }
+    //    }
+    //    else
+    //    {
+    //        isEndline = false;
+    //    }
+    //}
 
     private void OnTriggerStay(Collider other)
     {
         if(GameManager.Instance.level >= 3)
         {
+            Debug.Log(transform.parent.parent.name + " " + endPlatformName);
             Debug.Log(PlayerPrefs.GetInt("NextLevelPromotion"));
-            if (other.gameObject.CompareTag("Player") && isPlatformBurst && currentTime >= togglePlatformColor && !isEndline)
+            if (other.gameObject.CompareTag("Player") && isPlatformBurst && currentTime >= togglePlatformColor && transform.parent.parent.name != endPlatformName)
             {
 
                 Debug.Log(currentTime);
