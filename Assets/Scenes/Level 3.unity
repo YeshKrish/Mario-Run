@@ -521,6 +521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 1322871380}
+  platform: {fileID: 0}
 --- !u!4 &411687209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6450398877741688821, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
@@ -2775,6 +2776,17 @@ MonoBehaviour:
   - {fileID: 1819267471}
   - {fileID: 656349163}
   wayPointSpeed: 2
+--- !u!114 &1352201678 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7940878295332917532, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
+  m_PrefabInstance: {fileID: 1352201673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352201675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d144f5cbc5cb784c9c445c632f9f3d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1352201681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2788,6 +2800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 1322871380}
+  platform: {fileID: 1352201678}
 --- !u!1 &1365748989
 GameObject:
   m_ObjectHideFlags: 0
@@ -3178,6 +3191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 1322871380}
+  platform: {fileID: 0}
 --- !u!114 &1696650156
 MonoBehaviour:
   m_ObjectHideFlags: 0
