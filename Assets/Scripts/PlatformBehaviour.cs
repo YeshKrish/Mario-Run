@@ -11,6 +11,9 @@ public class PlatformBehaviour : MonoBehaviour
     float togglePlatformSize = 3f;
     //bool isEndline = false;
     bool isPlatformShrinking;
+
+    [HideInInspector]
+    public bool isPlatformRed = false;
     Vector3 shrinkOriginalSize;
 
     Transform platformShrink;
@@ -49,6 +52,7 @@ public class PlatformBehaviour : MonoBehaviour
             platformShrink.localScale = shrinkOriginalSize;
         }
 
+        Debug.Log("Platform Dead" + isPlatformRed);
         //Debug.Log(currentTime);
     }
 
@@ -75,7 +79,7 @@ public class PlatformBehaviour : MonoBehaviour
             Debug.Log(PlayerPrefs.GetInt("NextLevelPromotion"));
             if (other.gameObject.CompareTag("Player") && isPlatformBurst && currentTime >= togglePlatformColor && transform.parent.parent.name != endPlatformName)
             {
-
+                isPlatformRed = true;
                 Debug.Log(currentTime);
                 currentTime = 0f;
                 Debug.Log(currentTime);
@@ -94,9 +98,10 @@ public class PlatformBehaviour : MonoBehaviour
 
     void DestroyPlatform()
     {
-       // this.GetComponentInParent<MeshRenderer>().enabled = false;
+        // this.GetComponentInParent<MeshRenderer>().enabled = false;
         Transform transform = this.GetComponentInParent<Transform>();
         Destroy(transform.parent.gameObject);
+       
     }
 
     void PlatformShrinking()

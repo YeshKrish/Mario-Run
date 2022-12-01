@@ -16,6 +16,7 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("I am in else loop");
             Destroy(this.gameObject);
         }
     }

@@ -2687,6 +2687,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 823039955}
     m_Modifications:
+    - target: {fileID: 5289826098139809062, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
+      propertyPath: sticky
+      value: 
+      objectReference: {fileID: 1352201681}
     - target: {fileID: 6450398877741688821, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2739,6 +2743,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7940878295332917532, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
+      propertyPath: sticky
+      value: 
+      objectReference: {fileID: 1352201681}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
 --- !u!4 &1352201674 stripped
@@ -2767,7 +2775,7 @@ MonoBehaviour:
   - {fileID: 1819267471}
   - {fileID: 656349163}
   wayPointSpeed: 2
---- !u!114 &1352201677
+--- !u!114 &1352201681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

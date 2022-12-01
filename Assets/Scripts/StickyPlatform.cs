@@ -5,11 +5,31 @@ using UnityEngine;
 public class StickyPlatform : MonoBehaviour
 {
     public Transform playerPos;
-    private void OnCollisionEnter(Collision collision)
+
+    [SerializeField]
+    PlatformBehaviour platform;
+
+    bool checkPlatformAlive;
+
+    //Need to work
+    private void Update()
     {
-        if (collision.gameObject.name == "Player" || collision.gameObject.name == "Enemy")
+        checkPlatformAlive = platform.isPlatformRed;
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        //Need to kill player when platform destroyed
+        if ((collision.gameObject.name == "Player" || collision.gameObject.name == "Enemy" ) && checkPlatformAlive == false)
         {
             collision.gameObject.transform.SetParent(transform); 
+
+        }
+        //Need to work
+        else if(checkPlatformAlive == true)
+        {
+            Destroy(this);
+            //Invoke("RemoveStickyPlayer", 1f);
         }
     }
 
@@ -21,4 +41,8 @@ public class StickyPlatform : MonoBehaviour
         }
     }
 
+    void RemoveStickyPlayer()
+    {
+       // this.enabled = false;
+    }
 }
