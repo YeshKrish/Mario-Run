@@ -6,22 +6,13 @@ public class StickyPlatform : MonoBehaviour
 {
     public Transform playerPos;
 
-    [SerializeField]
-    PlatformBehaviour platform;
-
     private void OnCollisionStay(Collision collision)
     {
         //Need to kill player when platform destroyed
-        if ((collision.gameObject.name == "Player" || collision.gameObject.name == "Enemy" ) && PlatformBehaviour.isPlatformRed == false)
+        if ((collision.gameObject.name == "Player" || collision.gameObject.name == "Enemy" ))
         {
             collision.gameObject.transform.SetParent(transform); 
 
-        }
-        //Need to work
-        else if(PlatformBehaviour.isPlatformRed == true)
-        {
-            Destroy(this);
-            //Invoke("RemoveStickyPlayer", 1f);
         }
     }
 
@@ -33,8 +24,4 @@ public class StickyPlatform : MonoBehaviour
         }
     }
 
-    void RemoveStickyPlayer()
-    {
-       // this.enabled = false;
-    }
 }

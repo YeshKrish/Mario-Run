@@ -79,6 +79,7 @@ public class PlatformBehaviour : MonoBehaviour
             Debug.Log(PlayerPrefs.GetInt("NextLevelPromotion"));
             if (other.gameObject.CompareTag("Player") && isPlatformBurst && currentTime >= togglePlatformColor && transform.parent.parent.name != endPlatformName)
             {
+                //GetComponent<StickyPlatform>().enabled = false;
                 isPlatformRed = true;
                 Debug.Log(currentTime);
                 currentTime = 0f;
