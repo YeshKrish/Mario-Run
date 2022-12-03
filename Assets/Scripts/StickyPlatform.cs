@@ -9,24 +9,16 @@ public class StickyPlatform : MonoBehaviour
     [SerializeField]
     PlatformBehaviour platform;
 
-    bool checkPlatformAlive;
-
-    //Need to work
-    private void Update()
-    {
-        checkPlatformAlive = platform.isPlatformRed;
-    }
-
     private void OnCollisionStay(Collision collision)
     {
         //Need to kill player when platform destroyed
-        if ((collision.gameObject.name == "Player" || collision.gameObject.name == "Enemy" ) && checkPlatformAlive == false)
+        if ((collision.gameObject.name == "Player" || collision.gameObject.name == "Enemy" ) && PlatformBehaviour.isPlatformRed == false)
         {
             collision.gameObject.transform.SetParent(transform); 
 
         }
         //Need to work
-        else if(checkPlatformAlive == true)
+        else if(PlatformBehaviour.isPlatformRed == true)
         {
             Destroy(this);
             //Invoke("RemoveStickyPlayer", 1f);

@@ -13,7 +13,7 @@ public class PlatformBehaviour : MonoBehaviour
     bool isPlatformShrinking;
 
     [HideInInspector]
-    public bool isPlatformRed = false;
+    public static bool isPlatformRed = false;
     Vector3 shrinkOriginalSize;
 
     Transform platformShrink;
@@ -52,7 +52,7 @@ public class PlatformBehaviour : MonoBehaviour
             platformShrink.localScale = shrinkOriginalSize;
         }
 
-        Debug.Log("Platform Dead" + isPlatformRed);
+        Debug.Log("Platform Red" + isPlatformRed);
         //Debug.Log(currentTime);
     }
 
