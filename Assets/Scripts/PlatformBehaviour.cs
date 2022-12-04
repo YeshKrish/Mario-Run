@@ -25,6 +25,8 @@ public class PlatformBehaviour : MonoBehaviour
 
     string endPlatformName = "Endline";
 
+    List<Collider> collidingObjects;
+
     private void Start()
     {
         platformShrink = GameObject.FindGameObjectWithTag("EndLine").transform;
@@ -73,6 +75,10 @@ public class PlatformBehaviour : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        foreach(Collider collidingObjects in this.GetComponents<Collider>())
+        {
+            Debug.Log("I am colliding with" + collidingObjects.name);
+        }
         if(GameManager.Instance.level >= 3)
         {
             Debug.Log(transform.parent.parent.name + " " + endPlatformName);
