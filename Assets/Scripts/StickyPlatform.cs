@@ -6,13 +6,45 @@ public class StickyPlatform : MonoBehaviour
 {
     public Transform playerPos;
 
+    PlatformBehaviour platform;
+
+    bool isRed;
+    //Collision player_Col;
+
+    private void Start()
+    {
+       platform = gameObject.GetComponent<PlatformBehaviour>();
+
+        //player_Col = GameObject.FindGameObjectWithTag("Player").GetComponent<Collision>();
+    }
+
+    private void Update()
+    {
+       
+
+        isRed = PlatformBehaviour.isPlatformRed;
+        Debug.Log("isRed" + isRed);
+        //if (isRed)
+        //{
+        //    Debug.Log("I am in Destroy");
+        //    Destroy(this);
+        //    //OnCollisionExit(player_Col);
+        //}   
+    }
+
     private void OnCollisionStay(Collision collision)
     {
         //Need to kill player when platform destroyed
         if ((collision.gameObject.name == "Player" || collision.gameObject.name == "Enemy" ))
         {
-            collision.gameObject.transform.SetParent(transform); 
-
+            if (isRed)
+            {
+                collision.gameObject.transform.SetParent(null);
+            }
+            else
+            {
+                collision.gameObject.transform.SetParent(transform);
+            }
         }
     }
 

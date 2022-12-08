@@ -14,6 +14,9 @@ public class PlatformBehaviour : MonoBehaviour
 
     [HideInInspector]
     public static bool isPlatformRed = false;
+
+    StickyPlatform sticky;
+
     Vector3 shrinkOriginalSize;
 
     Transform platformShrink;
@@ -32,6 +35,8 @@ public class PlatformBehaviour : MonoBehaviour
         platformShrink = GameObject.FindGameObjectWithTag("EndLine").transform;
 
         finish = GameObject.FindGameObjectWithTag("FinishLine").GetComponent<Finish>();
+
+        sticky = gameObject.GetComponent<StickyPlatform>();
 
         shrinkOriginalSize = platformShrink.localScale;
     }
@@ -105,6 +110,7 @@ public class PlatformBehaviour : MonoBehaviour
 
     void DestroyPlatform()
     {
+        isPlatformRed = false;
         // this.GetComponentInParent<MeshRenderer>().enabled = false;
         Transform transform = this.GetComponentInParent<Transform>();
         Destroy(transform.parent.gameObject);
