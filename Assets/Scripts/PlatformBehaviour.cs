@@ -110,7 +110,7 @@ public class PlatformBehaviour : MonoBehaviour
 
     void DestroyPlatform()
     {
-        isPlatformRed = false;
+        //isPlatformRed = false;
         // this.GetComponentInParent<MeshRenderer>().enabled = false;
         Transform transform = this.GetComponentInParent<Transform>();
         Destroy(transform.parent.gameObject);
