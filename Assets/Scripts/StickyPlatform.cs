@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class StickyPlatform : MonoBehaviour
 {
-    public Transform playerPos;
-
     PlatformBehaviour platform;
 
     bool isRed;
