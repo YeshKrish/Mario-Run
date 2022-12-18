@@ -6,6 +6,11 @@ public class Enemy_Controller : MonoBehaviour
 {
     [SerializeField] GameObject burst;
 
+    private void Start()
+    {
+        
+    }
+
     private void Update()
     {  
 
@@ -15,6 +20,17 @@ public class Enemy_Controller : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        Debug.Log("No of children:" + this.transform.GetComponentInChildren<Collider>().isTrigger);
+        //foreach (Collider collidingObjects in this.GetComponents<Collider>())
+        //{
+        //    Debug.Log("I am colliding with" + collidingObjects.name);
+        //}
+
+        Debug.Log("I am in Trigger" + other.gameObject.name);
+    }
 }
     
-    
+        
