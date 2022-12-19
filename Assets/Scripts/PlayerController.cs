@@ -10,8 +10,17 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI coinText;
 
     [SerializeField] Item item;
+
     [SerializeField] AudioSource jumpSound;
+
     [SerializeField] AudioSource coinSound;
+
+    [SerializeField] private float m_turnSpeed = 200;
+
+    [SerializeField] float speed = 5f;
+
+    [SerializeField] float jumpHeight = 5f;
+
     public float jumpButtonGracePeriod;
     public Transform groundCheck;
     public LayerMask layers;
@@ -20,9 +29,10 @@ public class PlayerController : MonoBehaviour
 
     CameraContoller _camCon;
 
-    [SerializeField] float speed = 5f;
-    [SerializeField] float jumpHeight = 5f;
+    private float m_currentV = 0;
+    private float m_currentH = 0;
 
+    private readonly float m_interpolation = 10;
 
     float? lastGroundedTime;
     float? jumpButtonPressedTime;
@@ -102,6 +112,10 @@ public class PlayerController : MonoBehaviour
         }
 
         _rb.velocity = new Vector3(_hInput * speed, _rb.velocity.y, _vInput * speed);
+        //m_currentV = Mathf.Lerp(m_currentV, _vInput, Time.deltaTime * m_interpolation);
+        //m_currentH = Mathf.Lerp(m_currentH, _hInput, Time.deltaTime * m_interpolation);
+        //transform.Rotate(0, m_currentH * m_turnSpeed * Time.deltaTime, 0);
+
         if ((Time.time - lastGroundedTime <= jumpButtonGracePeriod))
         {
             if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)

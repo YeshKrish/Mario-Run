@@ -935,7 +935,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549482611}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.6060222, y: 2.64, z: 19.711525}
+  m_LocalPosition: {x: -0.09, y: 2.64, z: 19.711525}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1731,7 +1731,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 928612605}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.5460185, y: 2.64, z: 8.08846}
+  m_LocalPosition: {x: 0.03, y: 2.64, z: 8.08846}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2619,14 +2619,15 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 539fc216ffc432148bbbd063a66bd677, type: 2}
   jumpSound: {fileID: 1322871386}
   coinSound: {fileID: 1322871387}
+  m_turnSpeed: 200
+  speed: 5
+  jumpHeight: 7
   jumpButtonGracePeriod: 0.2
   groundCheck: {fileID: 1120842565}
   layers:
     serializedVersion: 2
     m_Bits: 64
   playerAnimation: {fileID: 1322871391}
-  speed: 5
-  jumpHeight: 7
 --- !u!4 &1322871380 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4549428611729446, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
@@ -3654,6 +3655,10 @@ PrefabInstance:
       propertyPath: enemyTransform
       value: 
       objectReference: {fileID: 6773193838193292472}
+    - target: {fileID: 6773193838193292474, guid: 2ef32dadae50fbe43ac5650cfb321377, type: 3}
+      propertyPath: wayPointSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6773193838193292474, guid: 2ef32dadae50fbe43ac5650cfb321377, type: 3}
       propertyPath: wayPoints.Array.data[0]
       value: 
