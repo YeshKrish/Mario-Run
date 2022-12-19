@@ -6,30 +6,59 @@ public class Enemy_Controller : MonoBehaviour
 {
     [SerializeField] GameObject burst;
 
+    //[SerializeField] Transform follow = null;
+
+    //private Vector3 originalLocalPosition;
+    //private Quaternion originalLocalRotation;
+
+
+    //private void Awake()
+    //{
+    //    originalLocalPosition = follow.localPosition;
+    //    originalLocalRotation = follow.localRotation;
+    //}
+
     private void Start()
     {
         
     }
 
     private void Update()
-    {  
-
-        if(this.transform.position.y < -2.5f)
+    {
+        Debug.Log("ChildCount" + transform.childCount);
+        if (this.transform.position.y < -2.5f)
         {
             Instantiate(burst, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    public void CheckForDestroy()
     {
-        Debug.Log("No of children:" + this.transform.GetComponentInChildren<Collider>().isTrigger);
-        //foreach (Collider collidingObjects in this.GetComponents<Collider>())
-        //{
-        //    Debug.Log("I am colliding with" + collidingObjects.name);
-        //}
+        Debug.Log("I am in CheckDest");
+        Instantiate(burst, transform.position, transform.rotation);
+        Destroy(this.gameObject);
 
-        Debug.Log("I am in Trigger" + other.gameObject.name);
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        //ContactPoint[] contactPoints = collision.contacts;
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            Debug.Log("I am colliding with:" + collision.gameObject.name);
+        }
+
+        if(collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("MovingPlatform"))
+        {
+            Instantiate(burst, transform.position, transform.rotation);
+            Destroy(this.gameObject);
+        }
+
+        //for (int i = 0; i < contactPoints.Length; i++)
+        //{
+        //    Debug.Log(contactPoints[i].thisCollider.name);
+        //}
     }
 }
     

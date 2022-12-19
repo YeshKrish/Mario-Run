@@ -14,6 +14,7 @@ TagManager:
   - EnemyBottom
   - GroundTrigger
   - EndLine
+  - Platform
   layers:
   - Default
   - TransparentFX

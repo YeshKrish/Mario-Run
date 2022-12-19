@@ -11,8 +11,7 @@ public class StickyPlatform : MonoBehaviour
 
     private void Start()
     {
-       platform = gameObject.GetComponent<PlatformBehaviour>();
-
+        platform = gameObject.GetComponent<PlatformBehaviour>();
         //player_Col = GameObject.FindGameObjectWithTag("Player").GetComponent<Collision>();
     }
 
