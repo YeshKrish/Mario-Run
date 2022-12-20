@@ -26,6 +26,7 @@ public class MainMenu : MonoBehaviour
 
     public void RestartGame()
     {
+        ScoreManager.Instance.HighScore();
         Item.quatity = 0;
         SceneManager.LoadScene(2);
        

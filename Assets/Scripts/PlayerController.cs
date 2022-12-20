@@ -29,9 +29,6 @@ public class PlayerController : MonoBehaviour
 
     CameraContoller _camCon;
 
-    private float m_currentV = 0;
-    private float m_currentH = 0;
-
     private readonly float m_interpolation = 10;
 
     float? lastGroundedTime;
@@ -44,7 +41,6 @@ public class PlayerController : MonoBehaviour
     int isWalkingHash;
     int isRunningHash;
     int isJumpingHash;
-    int isBackWalkingHash;
 
     // Start is called before the first frame update
     void Start()
@@ -53,18 +49,14 @@ public class PlayerController : MonoBehaviour
         coinText.text = Item.quatity.ToString();
         _rb = GetComponent<Rigidbody>();
         isWalkingHash = Animator.StringToHash("isWalking");
-        isRunningHash = Animator.StringToHash("isRunning");
-        isJumpingHash = Animator.StringToHash("isRunning");
-        isBackWalkingHash = Animator.StringToHash("isBackWalk");
+        isJumpingHash = Animator.StringToHash("isJumping");
     }
 
     // Update is called once per frame
     void Update()
     {
-        bool isRunning = playerAnimation.GetBool(isRunningHash);
-        bool isJumping = playerAnimation.GetBool(isRunningHash);
+        bool isJumping = playerAnimation.GetBool(isJumpingHash);
         bool isWalking = playerAnimation.GetBool(isWalkingHash);
-        bool isBackWalking = playerAnimation.GetBool(isBackWalkingHash);
         bool forwardPressed = Input.GetKey("w");
         bool runPressed = Input.GetKey("left shift");
         bool jumpPressed = Input.GetKey("space");
@@ -81,25 +73,6 @@ public class PlayerController : MonoBehaviour
         {
             playerAnimation.SetBool("isWalking", false);
         } 
-        if ((forwardPressed && runPressed) && !isRunning )
-        {
-            speed = 10f;
-            playerAnimation.SetBool("isRunning", true);
-        }
-        else if ((!forwardPressed || !runPressed) && isRunning)
-        {
-            playerAnimation.SetBool("isRunning", false);
-            speed = 5f;
-        }
-        if(backPressed && !isBackWalking)
-        {
-            playerAnimation.SetBool("isBackWalk", true);
-        }
-        else if(isBackWalking && !backPressed)
-        {
-            playerAnimation.SetBool("isBackWalk", false);
-        }
-
 
         if (IsGrounded())
         {
@@ -112,10 +85,8 @@ public class PlayerController : MonoBehaviour
         }
 
         _rb.velocity = new Vector3(_hInput * speed, _rb.velocity.y, _vInput * speed);
-        //m_currentV = Mathf.Lerp(m_currentV, _vInput, Time.deltaTime * m_interpolation);
-        //m_currentH = Mathf.Lerp(m_currentH, _hInput, Time.deltaTime * m_interpolation);
-        //transform.Rotate(0, m_currentH * m_turnSpeed * Time.deltaTime, 0);
 
+        //Ground Check - if not jumping make the player jump and again set the jumpPressed time to null to do a continuous jump
         if ((Time.time - lastGroundedTime <= jumpButtonGracePeriod))
         {
             if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
@@ -151,6 +122,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        //Power - If jumped on enemy head jump height is increased
         if (collision.gameObject.CompareTag("EnemyHead"))
         {
             Destroy(collision.transform.parent.gameObject);

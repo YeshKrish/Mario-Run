@@ -16,7 +16,6 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("I am in else loop");
             Destroy(this.gameObject);
         }
     }
@@ -24,8 +23,12 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        highScoreTxt.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
        
+       
+    }
+    public void HighScore()
+    {
+        highScoreTxt.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
 }
     

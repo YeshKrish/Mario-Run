@@ -48,9 +48,8 @@ public class PlatformBehaviour : MonoBehaviour
 
         isPlatformShrinking = Mathf.FloorToInt(Time.time) % 3 == 0;
 
-        Debug.Log(platformShrink.localScale + " " + finish.isFinishLine);
-
-        if (isPlatformShrinking && currentTime >= togglePlatformSize && !finish.isFinishLine)
+        //Hurdle 2: After 3sec shrink the platform and resize to original
+        if (isPlatformShrinking && currentTime >= togglePlatformSize && !finish.isFinishLine && GameManager.Instance.level >= 3)
         {
             PlatformShrinking();
         }
@@ -63,23 +62,9 @@ public class PlatformBehaviour : MonoBehaviour
         //Debug.Log(currentTime);
     }
 
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    Debug.Log(transform.parent.name + " " + endPlatformName);
-    //    if (collision.gameObject.CompareTag("Player") && transform.parent.name == endPlatformName)
-    //    {
-    //        isEndline = true;
-    //        Debug.Log("Finsh Line:" + isEndline);
-
-    //    }
-    //    else
-    //    {
-    //        isEndline = false;
-    //    }
-    //}
-
     private void OnTriggerStay(Collider other)
     {
+        //Hurdle 1: Chnage the color of platform to red and burst after 3 seconds
         if(GameManager.Instance.level >= 3)
         {
             Debug.Log(transform.parent.parent.name + " " + endPlatformName);
@@ -106,8 +91,6 @@ public class PlatformBehaviour : MonoBehaviour
 
     void DestroyPlatform()
     {
-        //isPlatformRed = false;
-        // this.GetComponentInParent<MeshRenderer>().enabled = false;
         Transform transform = this.GetComponentInParent<Transform>();
         Destroy(transform.parent.gameObject);
        

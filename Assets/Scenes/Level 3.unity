@@ -1433,7 +1433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3528432325791883680, guid: 2ef32dadae50fbe43ac5650cfb321377, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.89
+      value: 3.021
       objectReference: {fileID: 0}
     - target: {fileID: 3528432325791883680, guid: 2ef32dadae50fbe43ac5650cfb321377, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2842,14 +2842,15 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 539fc216ffc432148bbbd063a66bd677, type: 2}
   jumpSound: {fileID: 1322871386}
   coinSound: {fileID: 1322871387}
+  m_turnSpeed: 200
+  speed: 5
+  jumpHeight: 7
   jumpButtonGracePeriod: 0.2
   groundCheck: {fileID: 1120842565}
   layers:
     serializedVersion: 2
     m_Bits: 64
   playerAnimation: {fileID: 1322871391}
-  speed: 5
-  jumpHeight: 7
 --- !u!4 &1322871380 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4549428611729446, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}

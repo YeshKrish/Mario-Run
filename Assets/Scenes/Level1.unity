@@ -385,7 +385,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9802a4adc4598af46bbdb06cf5abb591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 1322871380}
 --- !u!4 &411687209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6450398877741688821, guid: aee7a4dd6dc817b4fa7a8dcbb644b13e, type: 3}
@@ -497,7 +496,7 @@ GameObject:
   - component: {fileID: 541749882}
   m_Layer: 0
   m_Name: Endline
-  m_TagString: Untagged
+  m_TagString: EndLine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1687,6 +1686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2728315ce3d9d40996aacd7a898b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinishLine: 0
   victorySound: {fileID: 1219355463}
   victoryText: {fileID: 584811172}
   player: {fileID: 1322871374}
@@ -1988,14 +1988,15 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 539fc216ffc432148bbbd063a66bd677, type: 2}
   jumpSound: {fileID: 1322871386}
   coinSound: {fileID: 1322871387}
+  m_turnSpeed: 200
+  speed: 5
+  jumpHeight: 7
   jumpButtonGracePeriod: 0.2
   groundCheck: {fileID: 1120842565}
   layers:
     serializedVersion: 2
     m_Bits: 64
   playerAnimation: {fileID: 1322871391}
-  speed: 5
-  jumpHeight: 7
 --- !u!4 &1322871380 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4549428611729446, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
@@ -2014,6 +2015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deadSound: {fileID: 1322871388}
+  playerDead: 0
 --- !u!82 &1322871386 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 705812593957217154, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
@@ -2304,7 +2306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9802a4adc4598af46bbdb06cf5abb591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 1322871380}
 --- !u!114 &1696650156
 MonoBehaviour:
   m_ObjectHideFlags: 0
