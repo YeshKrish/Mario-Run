@@ -6,7 +6,7 @@ public class EnemyScript : MonoBehaviour
 {
     private void Update()
     {
-        if (this.transform.position.y < -0.01f)
+        if (this.transform.position.y < -0.001f)
         {
             Destroy(this.gameObject);
         }
@@ -14,6 +14,7 @@ public class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     void OnDestroy()
     {
-        transform.parent.GetComponent<Enemy_Controller>().CheckForDestroy();
+
+        transform.parent.GetComponent<Enemy_Controller>().CheckForDestroy(Enemy_Controller.isCollidingWithPlayer);       
     }
 }
