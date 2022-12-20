@@ -14,7 +14,6 @@ public class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     void OnDestroy()
     {
-
         transform.parent.GetComponent<Enemy_Controller>().CheckForDestroy(Enemy_Controller.isCollidingWithPlayer);       
     }
 }

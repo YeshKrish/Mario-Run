@@ -6,6 +6,8 @@ public class Enemy_Controller : MonoBehaviour
 {
     [SerializeField] GameObject burst;
 
+    [SerializeField] GameObject plasma;
+
     [HideInInspector]
     public static bool isCollidingWithPlayer = false;
 
@@ -46,6 +48,11 @@ public class Enemy_Controller : MonoBehaviour
             Instantiate(burst, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
+        else if(isPlayer)
+        {
+            Instantiate(plasma, transform.position, transform.rotation);
+            isCollidingWithPlayer = false;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -72,6 +79,7 @@ public class Enemy_Controller : MonoBehaviour
         //    Debug.Log(contactPoints[i].thisCollider.name);
         //}
     }
+
 }
     
         

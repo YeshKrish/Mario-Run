@@ -3684,12 +3684,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 591139228}
     - target: {fileID: 5777935376648819465, guid: 2ef32dadae50fbe43ac5650cfb321377, type: 3}
+      propertyPath: plasma
+      value: 
+      objectReference: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
+    - target: {fileID: 5777935376648819465, guid: 2ef32dadae50fbe43ac5650cfb321377, type: 3}
       propertyPath: enemyTransform
       value: 
       objectReference: {fileID: 6773193838193292472}
     - target: {fileID: 6773193838193292474, guid: 2ef32dadae50fbe43ac5650cfb321377, type: 3}
       propertyPath: wayPointSpeed
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6773193838193292474, guid: 2ef32dadae50fbe43ac5650cfb321377, type: 3}
       propertyPath: wayPoints.Array.data[0]
