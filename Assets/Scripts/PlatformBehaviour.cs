@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
+
 public class PlatformBehaviour : MonoBehaviour
 {
     float currentTime;
@@ -24,14 +25,20 @@ public class PlatformBehaviour : MonoBehaviour
     [SerializeField] 
     Renderer platformColor;
 
+    //GameObject platform;
+
     Finish finish;
 
     string endPlatformName = "Endline";
 
     List<Collider> collidingObjects;
 
+    Enemy_Controller enemy;
+
     private void Start()
     {
+        //platform = GameObject.FindGameObjectWithTag("Platform");
+
         platformShrink = GameObject.FindGameObjectWithTag("EndLine").transform;
 
         finish = GameObject.FindGameObjectWithTag("FinishLine").GetComponent<Finish>();
@@ -39,10 +46,14 @@ public class PlatformBehaviour : MonoBehaviour
         sticky = gameObject.GetComponent<StickyPlatform>();
 
         shrinkOriginalSize = platformShrink.localScale;
+
     }
 
     private void Update()
     {
+        Debug.DrawRay(this.transform.parent.position, Vector3.up, Color.red);
+
+
         currentTime += Time.deltaTime;
         isPlatformBurst = Mathf.FloorToInt(Time.time) % 8 == 0;
 
@@ -57,9 +68,6 @@ public class PlatformBehaviour : MonoBehaviour
         {
             platformShrink.localScale = shrinkOriginalSize;
         }
-
-        Debug.Log("Platform Red" + isPlatformRed);
-        //Debug.Log(currentTime);
     }
 
     private void OnTriggerStay(Collider other)
@@ -67,16 +75,11 @@ public class PlatformBehaviour : MonoBehaviour
         //Hurdle 1: Chnage the color of platform to red and burst after 3 seconds
         if(GameManager.Instance.level >= 3)
         {
-            Debug.Log(transform.parent.parent.name + " " + endPlatformName);
-            Debug.Log(PlayerPrefs.GetInt("NextLevelPromotion"));
             if (other.gameObject.CompareTag("Player") && isPlatformBurst && currentTime >= togglePlatformColor && transform.parent.parent.name != endPlatformName)
             {
                 //GetComponent<StickyPlatform>().enabled = false;
                 isPlatformRed = true;
-                Debug.Log(currentTime);
                 currentTime = 0f;
-                Debug.Log(currentTime);
-                Debug.Log("Changing Color");
                 platformColor.material.color = Color.red;
                 Invoke("DestroyPlatform", 3f);
             }
@@ -91,9 +94,15 @@ public class PlatformBehaviour : MonoBehaviour
 
     void DestroyPlatform()
     {
+        RaycastHit _hit;
+
+        Physics.Raycast(this.transform.parent.position, Vector3.up, out _hit);
+        //Debug.Log("I hitted:" + _hit.transform.parent.gameObject.name);
+        enemy = _hit.transform.parent.gameObject.GetComponent<Enemy_Controller>();
         Transform transform = this.GetComponentInParent<Transform>();
-        Destroy(transform.parent.gameObject);
-       
+        //Destroy(transform.parent.gameObject);
+        transform.parent.gameObject.SetActive(false);
+        enemy.DestroyEnemy();
     }
 
     void PlatformShrinking()

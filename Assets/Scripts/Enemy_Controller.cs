@@ -11,6 +11,9 @@ public class Enemy_Controller : MonoBehaviour
     [HideInInspector]
     public static bool isCollidingWithPlayer = false;
 
+    [SerializeField]
+    private const string GROUND_LAYER = "Ground";
+
     //[SerializeField] Transform follow = null;
 
     //private Vector3 originalLocalPosition;
@@ -23,15 +26,24 @@ public class Enemy_Controller : MonoBehaviour
     //    originalLocalRotation = follow.localRotation;
     //}
 
-    private void Start()
+    public void DestroyEnemy()
     {
-        
+        Debug.Log("Destroyed Enemy Called");
+        RaycastHit _hit;
+        Debug.Log("Gameobj name:" + transform.gameObject.name);
+        bool isTouchingPlatform = Physics.Raycast(transform.position, Vector3.down, out _hit, 1000);
+        Debug.Log("Is touching" + isTouchingPlatform + "hit info:" + _hit.point);
+        if (isTouchingPlatform)
+        {
+            Debug.Log("My name is:" + this.gameObject.name);
+            this.gameObject.SetActive(false);
+            GameObject plasmaInstance = (GameObject)Instantiate(plasma, transform.position, transform.rotation);
+            Destroy(plasmaInstance, 3f);
+        }
     }
 
     private void Update()
     {
-        Debug.Log("Player collision" + isCollidingWithPlayer);
-
         //Debug.Log("ChildCount" + transform.childCount);
         //if (this.transform.position.y < -2.5f)
         //{

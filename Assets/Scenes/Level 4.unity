@@ -1233,11 +1233,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584811172}
   m_CullTransparentMesh: 1
---- !u!4 &591139228 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2366085624452809159, guid: 2ef32dadae50fbe43ac5650cfb321377, type: 3}
-  m_PrefabInstance: {fileID: 6773193838193292471}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &604869582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,7 +1643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4549428611729446, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4549428611729446, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3673,22 +3668,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 5170918887590024952, guid: 2ef32dadae50fbe43ac5650cfb321377, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5777935376648819465, guid: 2ef32dadae50fbe43ac5650cfb321377, type: 3}
-      propertyPath: follow
-      value: 
-      objectReference: {fileID: 591139228}
-    - target: {fileID: 5777935376648819465, guid: 2ef32dadae50fbe43ac5650cfb321377, type: 3}
-      propertyPath: enemyTransform
-      value: 
-      objectReference: {fileID: 6773193838193292472}
-    - target: {fileID: 6773193838193292474, guid: 2ef32dadae50fbe43ac5650cfb321377, type: 3}
-      propertyPath: wayPointSpeed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6773193838193292474, guid: 2ef32dadae50fbe43ac5650cfb321377, type: 3}
       propertyPath: wayPoints.Array.data[0]
       value: 
@@ -3697,10 +3676,6 @@ PrefabInstance:
       propertyPath: wayPoints.Array.data[1]
       value: 
       objectReference: {fileID: 928612605}
-    - target: {fileID: 7307681181021268604, guid: 2ef32dadae50fbe43ac5650cfb321377, type: 3}
-      propertyPath: follow
-      value: 
-      objectReference: {fileID: 591139228}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ef32dadae50fbe43ac5650cfb321377, type: 3}
 --- !u!4 &6773193838193292472 stripped

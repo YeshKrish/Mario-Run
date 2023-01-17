@@ -17,16 +17,8 @@ public class StickyPlatform : MonoBehaviour
 
     private void Update()
     {
-       
-
         isRed = PlatformBehaviour.isPlatformRed;
-        Debug.Log("isRed" + isRed);
-        //if (isRed)
-        //{
-        //    Debug.Log("I am in Destroy");
-        //    Destroy(this);
-        //    //OnCollisionExit(player_Col);
-        //}   
+ 
     }
 
     private void OnCollisionStay(Collision collision)

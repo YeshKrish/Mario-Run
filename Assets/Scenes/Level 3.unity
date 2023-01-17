@@ -1469,7 +1469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4392851250051623352, guid: 2ef32dadae50fbe43ac5650cfb321377, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: Enemy01
       objectReference: {fileID: 0}
     - target: {fileID: 4636690039747178967, guid: 2ef32dadae50fbe43ac5650cfb321377, type: 3}
       propertyPath: m_TagString
