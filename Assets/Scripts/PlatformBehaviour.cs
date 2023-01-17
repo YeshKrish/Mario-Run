@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class PlatformBehaviour : MonoBehaviour
 {
+    [SerializeField]
+    private const string GROUND_LAYER = "Platform";
+
     float currentTime;
     bool isPlatformBurst;
     float togglePlatformColor = 8f;
@@ -94,15 +97,15 @@ public class PlatformBehaviour : MonoBehaviour
 
     void DestroyPlatform()
     {
-        RaycastHit _hit;
+        //RaycastHit _hit;
 
-        Physics.Raycast(this.transform.parent.position, Vector3.up, out _hit);
-        //Debug.Log("I hitted:" + _hit.transform.parent.gameObject.name);
-        enemy = _hit.transform.parent.gameObject.GetComponent<Enemy_Controller>();
-        Transform transform = this.GetComponentInParent<Transform>();
+        //Physics.Raycast(this.transform.position, Vector3.down, out _hit);
+        //Debug.Log("I hitted:" + _hit.transform.gameObject.name);
+        //enemy = _hit.transform.parent.gameObject.GetComponent<Enemy_Controller>();
+        //Transform transform = this.GetComponentInParent<Transform>();
         //Destroy(transform.parent.gameObject);
         transform.parent.gameObject.SetActive(false);
-        enemy.DestroyEnemy();
+        //enemy.DestroyEnemy();
     }
 
     void PlatformShrinking()

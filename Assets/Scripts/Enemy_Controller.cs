@@ -26,21 +26,23 @@ public class Enemy_Controller : MonoBehaviour
     //    originalLocalRotation = follow.localRotation;
     //}
 
-    public void DestroyEnemy()
-    {
-        Debug.Log("Destroyed Enemy Called");
-        RaycastHit _hit;
-        Debug.Log("Gameobj name:" + transform.gameObject.name);
-        bool isTouchingPlatform = Physics.Raycast(transform.position, Vector3.down, out _hit, 1000);
-        Debug.Log("Is touching" + isTouchingPlatform + "hit info:" + _hit.point);
-        if (isTouchingPlatform)
-        {
-            Debug.Log("My name is:" + this.gameObject.name);
-            this.gameObject.SetActive(false);
-            GameObject plasmaInstance = (GameObject)Instantiate(plasma, transform.position, transform.rotation);
-            Destroy(plasmaInstance, 3f);
-        }
-    }
+    //Need to impleted in future
+
+    //public void DestroyEnemy()
+    //{
+    //    Debug.Log("Destroyed Enemy Called");
+    //    RaycastHit _hit;
+    //    Debug.Log("Gameobj name:" + transform.gameObject.name);
+    //    bool isTouchingPlatform = Physics.Raycast(transform.position, Vector3.down, out _hit, 1000);
+    //    Debug.Log("Is touching" + isTouchingPlatform + "hit info:" + _hit.point);
+    //    if (isTouchingPlatform)
+    //    {
+    //        Debug.Log("My name is:" + this.gameObject.name);
+    //        this.gameObject.SetActive(false);
+    //        GameObject plasmaInstance = (GameObject)Instantiate(plasma, transform.position, transform.rotation);
+    //        Destroy(plasmaInstance, 3f);
+    //    }
+    //}
 
     private void Update()
     {
@@ -57,12 +59,14 @@ public class Enemy_Controller : MonoBehaviour
         Debug.Log("Player collision" + isCollidingWithPlayer);
         if (!isPlayer)
         {
-            Instantiate(burst, transform.position, transform.rotation);
+            GameObject _burstInstance = (GameObject)Instantiate(burst, transform.position, transform.rotation);
+            Destroy(_burstInstance, 3f);
             Destroy(this.gameObject);
         }
         else if(isPlayer)
         {
-            Instantiate(plasma, transform.position, transform.rotation);
+            GameObject _plasmaInstance = (GameObject)Instantiate(plasma, transform.position, transform.rotation);
+            Destroy(_plasmaInstance, 3f);
             isCollidingWithPlayer = false;
         }
     }
