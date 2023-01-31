@@ -24,7 +24,7 @@ public class StickyPlatform : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         //Need to kill player when platform destroyed
-        if ((collision.gameObject.name == "Player" || collision.gameObject.name == "Enemy" ))
+        if ((collision.gameObject.name == "Player"))
         {
             if (isRed)
             {
@@ -34,6 +34,10 @@ public class StickyPlatform : MonoBehaviour
             {
                 collision.gameObject.transform.SetParent(transform);
             }
+        }
+        else if(collision.gameObject.name == "Enemy")
+        {
+            collision.gameObject.transform.SetParent(transform);
         }
     }
 
